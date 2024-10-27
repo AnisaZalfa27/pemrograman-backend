@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AnimalController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\UserController;
 
 Route::get('/user', function (Request $request) {
     return $request->user();
@@ -19,3 +21,11 @@ Route::put('/animals/{id}', [AnimalController::class, 'update']);
 
 # method delete
 Route::delete('/animals/{id}', [AnimalController::class, 'destroy']);
+
+Route::get('/users', [UserController::class, 'index']);
+Route::post('/users/store', [StudentController::class, 'store']);
+
+Route::get('/students', [StudentController::class, 'index']);
+Route::post('/students', [StudentController::class, 'store']);
+
+
