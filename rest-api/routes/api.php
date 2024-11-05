@@ -28,4 +28,20 @@ Route::post('/users/store', [StudentController::class, 'store']);
 Route::get('/students', [StudentController::class, 'index']);
 Route::post('/students', [StudentController::class, 'store']);
 
+Route::post('/students/{id}', [StudentController::class, 'update']);
+Route::post('/students/{id}', [StudentController::class, 'destroy']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Controllers\Student
-use Illuminate\Http\Request;
+
 
 class StudentController extends Controller
 {
@@ -40,4 +40,31 @@ class StudentController extends Controller
     public function show(string $id){
         
     }
+
+    public function update(Request $request, string $id){
+        if ($student){
+
+            $input = [
+                'name' => $request ->name ?? $student->name,
+                'nim' => $request ->nim ?? $student->nim,
+                'email' => $request ->email ?? $student->email,
+                'majority' => $request ->majority ?? $student->majority
+            ]
+
+            $student->update($input);
+
+            $response = [
+                'message' => 'Student Not Found',
+                'data' => $student
+            ];
+
+            return response()->json($response, 200)
+        }else {
+            $response = [
+                'message' => 'Student Not Found'
+            ]
+        }
+    }
 }
+
+
